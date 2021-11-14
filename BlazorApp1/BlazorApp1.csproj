@@ -1,13 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\RazorClassLibrary1\RazorClassLibrary1.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\RazorClassLibrary1\RazorClassLibrary1.csproj" />
+	</ItemGroup>
+
+	<Target Name="CompileStaticAssets" AfterTargets="AfterBuild">
+		<Exec Command="echo test > $(MSBuildProjectDirectory)/wwwroot/test.txt" />
+	</Target>
 
 </Project>
