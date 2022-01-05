@@ -15,7 +15,7 @@
 	</ItemGroup>
 
 	<Target Name="CompileStaticAssets" AfterTargets="AfterBuild">
-		<Exec Command="echo test > $(MSBuildProjectDirectory)/wwwroot/test.txt" />
+		<Exec Command="echo test > $(MSBuildProjectDirectory)/wwwroot/test_library.txt" />
 	</Target>
 
 </Project>
