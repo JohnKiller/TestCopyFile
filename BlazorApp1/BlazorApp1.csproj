@@ -10,8 +10,4 @@
 		<ProjectReference Include="..\RazorClassLibrary1\RazorClassLibrary1.csproj" />
 	</ItemGroup>
 
-	<Target Name="CompileStaticAssets" AfterTargets="AfterBuild">
-		<Exec Command="echo test > $(MSBuildProjectDirectory)/wwwroot/test_program.txt" />
-	</Target>
-
 </Project>

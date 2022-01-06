@@ -14,12 +14,12 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0" />
 	</ItemGroup>
 
-	<Target Name="CompileStaticAssets" BeforeTargets="AssignTargetPaths">
-		<Exec Command="echo test > $(IntermediateOutputPath)test_library.txt" />
-	</Target>
+	<Target Name="NpmRunBuild" BeforeTargets="AssignTargetPaths" Inputs="Component1.razor.scss" Outputs="$(IntermediateOutputPath)Component1.razor.css">
+		<Exec Command="copy Component1.razor.scss $(IntermediateOutputPath)Component1.razor.css" />
 
-	<ItemGroup>
-		<Content Include="$(IntermediateOutputPath)test_library.txt" Link="wwwroot/test_library.txt" />
-	</ItemGroup>
+		<ItemGroup>
+			<Content Include="$(IntermediateOutputPath)Component1.razor.css" Link="Component1.razor.css" />
+		</ItemGroup>
+	</Target>
 
 </Project>
