@@ -14,8 +14,12 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0" />
 	</ItemGroup>
 
-	<Target Name="CompileStaticAssets" AfterTargets="AfterBuild">
-		<Exec Command="echo test > $(MSBuildProjectDirectory)/wwwroot/test_library.txt" />
+	<Target Name="CompileStaticAssets" BeforeTargets="AssignTargetPaths">
+		<Exec Command="echo test > $(IntermediateOutputPath)test_library.txt" />
 	</Target>
+
+	<ItemGroup>
+		<Content Include="$(IntermediateOutputPath)test_library.txt" Link="wwwroot/test_library.txt" />
+	</ItemGroup>
 
 </Project>
